@@ -1,0 +1,20 @@
+#!/bin/bash
+
+url="https://ghostbin.com/paste/new"
+
+data="$HOME/.local/share/ghostbin"
+if [ ! -d data ]; then
+	mkdir -p $data;
+fi
+
+cookie_f="$data/.cookies"
+if [ -f $cookie_f ]; then
+	cookies="-b $cookie_f";
+else
+	cookies="-c $cookie_f";
+fi
+
+curl $cookies --data "expire=1h&lang=text" --data-urlencode "text@-" -i $url\
+	| grep -Po '/paste/[A-Za-z0-9]+'\
+	| sed "s|\(.\+\)|http://ghostbin.com\1|"\
+	| xsel;
