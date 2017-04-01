@@ -2,6 +2,10 @@
 
 url="https://ghostbin.com/paste/new"
 
+if [ "$1" == "--edit" ]; then
+	edit="/edit";
+fi
+
 data="$HOME/.local/share/ghostbin"
 if [ ! -d data ]; then
 	mkdir -p $data;
@@ -16,5 +20,5 @@ fi
 
 curl $cookies --data "expire=1h&lang=text" --data-urlencode "text@-" -i $url\
 	| grep -Po '/paste/[A-Za-z0-9]+'\
-	| sed "s|\(.\+\)|http://ghostbin.com\1|"\
+	| sed "s|\(.\+\)|http://ghostbin.com\1$edit|"\
 	| xsel;
