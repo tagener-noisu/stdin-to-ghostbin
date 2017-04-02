@@ -1,10 +1,27 @@
 #!/bin/bash
+VERSION="0.2.0"
+
+function usage () {
+	>&2 printf "pasteit $VERSION\n\n";
+	>&2 printf "Commands:\n";
+	>&2 printf "	-h, --help	show this usage\n";
+	>&2 printf "	-e, --edit	copy url with edit mode on\n";
+}
 
 url="https://ghostbin.com/paste/new"
+edit=""
 
-if [ "$1" == "--edit" ]; then
-	edit="/edit";
-fi
+while [ "$1" != "" ]; do
+	case $1 in
+		-h | --help )	usage
+				exit
+				;;
+		-e | --edit )	edit="/edit"
+				;;
+		* )		usage
+				exit 1
+	esac
+done
 
 data="$HOME/.local/share/ghostbin"
 if [ ! -d data ]; then
