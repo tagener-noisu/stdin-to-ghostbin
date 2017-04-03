@@ -35,7 +35,7 @@ else
 	cookies="-c $cookie_f";
 fi
 
-curl $cookies --data "expire=1h&lang=text" --data-urlencode "text@-" -i $url\
+curl $cookies --data "expire=10m&lang=text" --data-urlencode "text@-" -i $url\
 	| grep -Po '/paste/[A-Za-z0-9]+'\
 	| sed "s|\(.\+\)|http://ghostbin.com\1$edit|"\
 	| xsel;
