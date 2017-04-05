@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION="0.2.0"
+VERSION="0.2.1"
 
 function usage () {
 	>&2 printf "pasteit $VERSION\n\n";
@@ -21,6 +21,7 @@ while [ "$1" != "" ]; do
 		* )		usage
 				exit 1
 	esac
+	shift
 done
 
 data="$HOME/.local/share/ghostbin"
