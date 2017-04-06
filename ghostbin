@@ -2,8 +2,14 @@
 VERSION="0.2.1"
 
 function usage () {
-	>&2 printf "pasteit $VERSION\n\n";
-	>&2 printf "Commands:\n";
+	>&2 printf "pasteit $VERSION\n";
+	>&2 printf "Copyright (C) 2017 tagner-noisu <op4.renegat@gmail.com>\n";
+	>&2 printf "License: GNU General Public License version 3 ";
+	>&2 printf "<http://www.gnu.org/licenses/>\n";
+	>&2 printf "This is free software: you are free to change and ";
+	>&2 printf "redistribute it.\n";
+	>&2 printf "This program comes with ABSOLUTELY NO WARRANTY.\n\n";
+	>&2 printf "Usage:\n";
 	>&2 printf "	-h, --help	show this usage\n";
 	>&2 printf "	-e, --edit	copy url with edit mode on\n";
 }
