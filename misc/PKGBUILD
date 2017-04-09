@@ -1,0 +1,24 @@
+pkgname=ghostbin
+pkgver=0.2.1
+pkgrel=1
+pkgdesc="A script that creates a paste on ghostbin.com from stdin"
+url="https://github.com/tagener-noisu/stdin-to-ghostbin"
+arch=('any')
+license=('GPL')
+depends=('curl')
+source=("$pkgname::git+https://github.com/tagener-noisu/stdin-to-ghostbin.git")
+md5sums=('SKIP')
+
+pkgver(){
+  cd $pkgname
+  grep VERSION= $pkgname | grep -Po '(\d+\.){2}[\d\w]+'
+}
+
+package() {
+  cd $pkgname
+  install -m755 -D ghostbin "$pkgdir/usr/bin/ghostbin"
+  install -m644 -D LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -m644 -D README.md "$pkgdir/usr/share/doc/$pkgname/README.md"
+}
+
+# vim:ts=2:sw=2:et:
