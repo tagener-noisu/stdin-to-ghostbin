@@ -3,7 +3,7 @@ A script that creates a paste on [ghostbin.com](https://ghostbin.com) from stdin
 
 ## Installation
 ### Archlinux
-* Download a `PKGBUILD` from misc directory and run makepkg with desired parameters
+* Download a [PKGBUILD](misc/PKGBUILD) run makepkg with desired parameters
 
 ### Other distros
 * Just drop the script to any directory from your `$PATH` or
