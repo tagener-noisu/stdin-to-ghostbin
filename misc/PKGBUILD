@@ -5,7 +5,7 @@ pkgdesc="A script that creates a paste on ghostbin.com from stdin"
 url="https://github.com/tagener-noisu/stdin-to-ghostbin"
 arch=('any')
 license=('GPL')
-depends=('curl')
+depends=('curl' 'xsel')
 source=("$pkgname::git+https://github.com/tagener-noisu/stdin-to-ghostbin.git")
 md5sums=('SKIP')
 
